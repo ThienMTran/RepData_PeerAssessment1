@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
@@ -34,7 +29,7 @@ steps.per.day = aggregate(steps ~ date, data = activity, sum, na.rm=TRUE)
 hist(steps.per.day$steps)
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 3 - Mean and median of the total number of steps taken per day
 
@@ -61,7 +56,7 @@ steps.by.interval = aggregate(steps ~ interval, data = activity, mean, na.rm=TRU
 plot(steps.by.interval$steps ~ steps.by.interval$interval, type = "l")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
 2 - The 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
@@ -114,7 +109,7 @@ steps.per.day.new = aggregate(steps ~ date, data = activity.new, sum, na.rm=TRUE
 hist(steps.per.day.new$steps)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
 
 ```r
 mean(steps.per.day.new$steps)
@@ -156,15 +151,8 @@ The lattice plotting system is used.
 
 ```r
 library(lattice)
-```
-
-```
-## Warning: package 'lattice' was built under R version 3.0.3
-```
-
-```r
 xyplot(steps ~ interval | weekday, data = activity.new, layout = c(1,2), type = "l",
        xlab = "Interval", ylab = "Number of steps")
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
